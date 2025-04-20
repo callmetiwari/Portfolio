@@ -8,12 +8,12 @@ export const Hero = () => {
   const typedText = useTypewriter("Hi, I'm Shashank Tiwari", 100);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-secondary/20 via-background to-background pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-900/20 via-background to-background pt-16 overflow-hidden">
       <ParticleBackground />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-foreground via-primary to-primary/60 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+          <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-300 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
             {typedText}
             <span className="inline-block animate-pulse ml-1">|</span>
           </h1>

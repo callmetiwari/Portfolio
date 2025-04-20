@@ -20,7 +20,10 @@ export const ParticleBackground = () => {
       radius: number;
       speedX: number;
       speedY: number;
+      color: string;
     }> = [];
+
+    const colors = ['#4C3AE3', '#9D4EDD', '#C77DFF', '#E0AAFF'];
 
     const createParticle = () => {
       return {
@@ -29,15 +32,17 @@ export const ParticleBackground = () => {
         radius: Math.random() * 2 + 1,
         speedX: (Math.random() - 0.5) * 0.5,
         speedY: (Math.random() - 0.5) * 0.5,
+        color: colors[Math.floor(Math.random() * colors.length)]
       };
     };
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 100; i++) {
       particles.push(createParticle());
     }
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(13, 13, 13, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach((particle) => {
         particle.x += particle.speedX;
@@ -48,8 +53,24 @@ export const ParticleBackground = () => {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.fillStyle = particle.color;
         ctx.fill();
+
+        // Connect particles within 100px distance
+        particles.forEach((otherParticle) => {
+          const dx = particle.x - otherParticle.x;
+          const dy = particle.y - otherParticle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - distance / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(otherParticle.x, otherParticle.y);
+            ctx.stroke();
+          }
+        });
       });
 
       requestAnimationFrame(animate);
