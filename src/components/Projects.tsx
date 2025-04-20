@@ -13,26 +13,25 @@ const projects = [
     description: "Full-stack application with real-time features",
     image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80",
   },
-  // Add more projects as needed
 ];
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Featured Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 border-border bg-secondary/20">
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-48 object-cover"
               />
               <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <Button variant="outline" className="w-full">View Project</Button>
+                <h3 className="font-semibold mb-2 text-foreground">{project.title}</h3>
+                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <Button variant="outline" className="w-full border-border">View Project</Button>
               </CardContent>
             </Card>
           ))}
