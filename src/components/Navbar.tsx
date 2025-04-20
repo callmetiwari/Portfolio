@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
@@ -13,7 +12,10 @@ export const Navbar = () => {
               variant="ghost"
               className="hover:bg-accent/50 text-foreground"
               onClick={() => {
-                document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+                // Make sure IDs match and scroll smoothly
+                document.getElementById(item.toLowerCase())?.scrollIntoView({
+                  behavior: "smooth",
+                });
               }}
             >
               {item}
