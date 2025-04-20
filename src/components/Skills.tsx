@@ -19,7 +19,7 @@ import LinuxIcon from "../assets/skills/linux.jpeg";
 import MongoIcon from "../assets/skills/mongodb.png";
 import MySQLIcon from "../assets/skills/sql.png";
 import PostgresqlIcon from "../assets/skills/Postgresql.png";
-import GithubIcon from "../assets/skills/github.png";
+import GithubIcon from "../assets/skills/Github.png";
 
 const skills = [
   { name: "C", icon: cIcon },
